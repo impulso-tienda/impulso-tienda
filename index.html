@@ -190,8 +190,8 @@ const CURRENCY = "EUR";                  // "ARS" | "EUR" | "USD" (solo cambia e
 const PRODUCTS = [
   { id:"rm-home", team:"Real Madrid", name:"Real Madrid 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"Real Madrid Home 25-26 (1).jpg" },
   { id:"rm-away", team:"Real Madrid", name:"Real Madrid 25/26 Plaver Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"Real Madrid Away 25-26.png" },
-  { id:"rm-3rd", team:"Real Madrid", name:"Real Madrid 25/26 Plaver Version · 3rd", price:40, sizes:["S","M","L","XL"], img:"Real Madrid Away 25-26.png" },
-  { id:"fcb-away", team:"Barcelona", name:"Barcelona 25/26 Plaver Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Barcelona Away 25-26.jpg" },
+  { id:"rm-3rd", team:"Real Madrid", name:"Real Madrid 25/26 Plaver Version · 3rd", price:40, sizes:["S","M","L","XL"], img:"Real Madrid 3rd 25-26.jpg" },
+  { id:"fcb-away", team:"Barcelona", name:"Barcelona 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"IMG_3668.PNG" },
   { id:"fcb-away", team:"Barcelona", name:"Barcelona 25/26 Plaver Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Barcelona Away 25-26.jpg" },
   { id:"atm-home", team:"Atlético de Madrid", name:"Atlético 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Atletico de Madrid Home 25-26.jpg" },
   { id:"psg-home", team:"PSG", name:"PSG 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"PSG Home 25-26.jpg" },
@@ -199,19 +199,21 @@ const PRODUCTS = [
   { id:"liv-away", team:"Liverpool", name:"Liverpool 25/26 Plaver Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"Liverpool 3rd 25-26.jpg" },
   { id:"man-home", team:"Manchester City", name:"Manchester City 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"IMG_3665.PNG" },
   { id:"man-away", team:"Manchester City", name:"Manchester City 25/26 Plaver Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"IMG_3667.PNG" },
-  { id:"utd-away", team:"Manchester United", name:"Manchester United 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"IMG_3667.PNG" },
-  { id:"tot-home", team:"Tottenham", name:"Tottenham 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"Tottenham Away 25_26.PNG" }
+  { id:"utd-away", team:"Manchester United", name:"Manchester United 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"Man United Home 25-26.jpg" },
+  { id:"tot-home", team:"Tottenham", name:"Tottenham 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"Tottenham Home 25-26.PNG" }
   { id:"tot-away", team:"Tottenham", name:"Tottenham 25/26 Plaver Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"Tottenham Away 25_26.PNG" }
   { id:"che-home", team:"Chelsea", name:"Chelsea 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Chelsea Home 25-26.jpg" },
   { id:"imi-home", team:"Inter Miami", name:"Inter Miami 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Inter Miami Home 25-26 (1).jpg" },
-  { id:"juv-home", team:"Juventus", name:"Juventus 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1542996966-2e31c00bae30?q=80&w=1200&auto=format&fit=crop" },
-  { id:"juv-home", team:"Juventus", name:"Juventus 25/26 Plaver Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1542996966-2e31c00bae30?q=80&w=1200&auto=format&fit=crop" },
-  { id:"int-home", team:"Inter de Milan", name:"Inter de Milan 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Chelsea Home 25-26.jpg" },
-  { id:"int-home", team:"Inter de Milan", name:"Inter de Milan 25/26 Plaver Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Chelsea Home 25-26.jpg" },
-  { id:"mil-home", team:"AC Milan", name:"AC Milan 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Chelsea Home 25-26.jpg" },
-  { id:"mil-home", team:"AC Milan", name:"AC Milan 25/26 Plaver Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Chelsea Home 25-26.jpg" },
-  { id:"bay-home", team:"Bayern Munich", name:"Bayern Munich 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Chelsea Home 25-26.jpg" },
-  { id:"bay-home", team:"Bayern Munich", name:"Bayern Munich 25/26 Plaver Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Chelsea Home 25-26.jpg" },
+  { id:"juv-home", team:"Juventus", name:"Juventus 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"Juventus Home 25-26.jpg" },
+  { id:"juv-home", team:"Juventus", name:"Juventus 25/26 Plaver Version · Visitante", price:40, sizes:["S","M","L","XL"], img:Juventus Away 25-26.jpg" },
+  { id:"int-home", team:"Inter de Milan", name:"Inter de Milan 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Inter Home 25-26.jpg" },
+  { id:"int-home", team:"Inter de Milan", name:"Inter de Milan 25/26 Plaver Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Inter Away 25-26.jpg" },
+  { id:"mil-home", team:"AC Milan", name:"AC Milan 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"AC Milan Home 25-26.jpg" },
+  { id:"bay-home", team:"Bayern Munich", name:"Bayern Munich 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Bayern Munich 3rd 25-26.jpg" },
+  { id:"bay-home", team:"Bayern Munich", name:"Bayern Munich 25/26 Plaver Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Bayern Munich Away 25-26.jpg" },
+  { id:"boc-home", team:"Boca Juniors", name:"Boca Juniors  25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Boca Jrs Home 25-26 (1).jpg" },
+   { id:"boc-home", team:"Boca Juniors ", name:"Boca Juniors  25/26 Plaver Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Boca Jr Away 25_26.png" },
+  ];
 // ----------------------------
 // UTILIDADES
 // ----------------------------
