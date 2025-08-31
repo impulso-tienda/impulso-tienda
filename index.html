@@ -34,7 +34,14 @@
     .btn.accent{ background:linear-gradient(135deg, var(--accent), #e9cf8c); color:#1a1a1a; border:none }
     /* Hero */
     .hero{ display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center; padding:28px 0 8px }
-    .hero-card{ background:linear-gradient(180deg,#18181c, #121214); border:1px solid #232328; border-radius:20px; padding:22px }
+    .hero-card{  position: relative;
+  border-radius: 20px;
+  padding: 22px;
+  border:1px solid #232328;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.8)),
+    url("fondo champions.jpg") center/cover no-repeat; /* ← tu imagen de fondo */
+ }
     .hero h1{ font-size:32px; line-height:1.1; margin:0 0 10px }
     .hero p{ color:var(--muted); margin:0 0 16px }
     .hero .badge{ display:inline-block; font-size:12px; color:#1a1a1a; background:linear-gradient(135deg, var(--accent), #f2e1a2); padding:6px 10px; border-radius:999px; font-weight:800 }
@@ -79,7 +86,7 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <div class="logo">Logo Negro png (1).PNG</div>
+        <div class="logo">I</div>
         <div>
           <div style="font-size:15px; line-height:1;">IMPULSO</div>
           <div class="muted" style="font-size:11px; line-height:1;">Indumentaria de fútbol</div>
