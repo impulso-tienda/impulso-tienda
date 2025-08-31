@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -34,14 +35,7 @@
     .btn.accent{ background:linear-gradient(135deg, var(--accent), #e9cf8c); color:#1a1a1a; border:none }
     /* Hero */
     .hero{ display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center; padding:28px 0 8px }
-    .hero-card{  position: relative;
-  border-radius: 20px;
-  padding: 22px;
-  border:1px solid #232328;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.8)),
-    url("fondo champions.jpg") center/cover no-repeat; /* ← tu imagen de fondo */
- }
+    .hero-card{ background:linear-gradient(180deg,#18181c, #121214); border:1px solid #232328; border-radius:20px; padding:22px }
     .hero h1{ font-size:32px; line-height:1.1; margin:0 0 10px }
     .hero p{ color:var(--muted); margin:0 0 16px }
     .hero .badge{ display:inline-block; font-size:12px; color:#1a1a1a; background:linear-gradient(135deg, var(--accent), #f2e1a2); padding:6px 10px; border-radius:999px; font-weight:800 }
@@ -93,7 +87,7 @@
         </div>
       </div>
       <div class="actions">
-        <span class="pill">Tienda Oficial · GitHub Pages</span>
+        <span class="pill">Hecho con $0 · GitHub Pages</span>
         <button class="btn" id="toggleCart">Carrito</button>
         <a class="btn accent" href="#productos">Ver productos</a>
       </div>
@@ -103,13 +97,12 @@
   <!-- HERO -->
   <section class="container hero">
     <div class="hero-card">
-      <span class="badge">NUEVO DROP 25/26</span>
-      <h1>TIENDA DE FUTBOL <span style="color:var(--accent)">La mejor calidad</span>.</h1>
-      <p>Stock inmediato en modelos top / Short's Player Version / Camisetas Retro, Plaver V y Fan V a un Click!
-        Consiguelo aqui en IMPULSO.</p>
+      <span class="badge">Nuevo drop 25/26</span>
+      <h1>Tu tienda de camisetas <span style="color:var(--accent)">a precio fan</span>.</h1>
+      <p>Stock inmediato en modelos top: Real Madrid, Barcelona, PSG, Inter Miami (Messi) y más. Envíos a todo el país. Pagá por transferencia, Mercado Pago o internacional por Wise/PayPal.</p>
       <div class="row">
         <a class="btn accent" href="#productos">Explorar catálogo</a>
-        <a class="btn" href="https://wa.me/5491135573396?text=Hola%20IMPULSO%2C%20quiero%20hacer%20un%20pedido" target="_blank">WhatsApp</a>
+        <a class="btn" href="https://wa.me/5491100000000?text=Hola%20IMPULSO%2C%20quiero%20hacer%20un%20pedido" target="_blank">WhatsApp</a>
       </div>
     </div>
     <div class="banner">
@@ -143,9 +136,13 @@
     <button id="clearFilters" class="btn">Limpiar filtros</button>
   </section>
 
-  <!-- GRID -->
+  <!-- GRID POR CATEGORÍAS -->
   <section id="productos" class="container">
-    <div class="grid" id="grid"></div>
+    <h2 style="margin:22px 0 6px">🕰️ Camisetas Retro</h2>
+    <div class="grid" id="grid-retro"></div>
+
+    <h2 style="margin:26px 0 6px">🌍 Europa</h2>
+    <div class="grid" id="grid-europa"></div>
   </section>
 
   <!-- CART PANEL -->
@@ -168,27 +165,30 @@
   </div>
 
   <footer>
-    © <span id="year"></span> IMPULSO · Indumentaria Deportiva. · <a href="#" class="muted">Política de cambios</a>
+    © <span id="year"></span> IMPULSO · Hecho con amor y $0. · <a href="#" class="muted">Política de cambios</a>
   </footer>
 
 <script>
 // ----------------------------
 // CONFIGURACIÓN (editá acá)
 // ----------------------------
-const WHATSAPP_NUMBER = "5491135573396"; // ← REEMPLAZAR por tu número (cód. país + área + número, sin +)
-const CURRENCY = "EUR";                  // "ARS" | "EUR" | "USD" (solo cambia el símbolo visual)
+const WHATSAPP_NUMBER = "5491100000000"; // ← REEMPLAZAR por tu número (cód. país + área + número, sin +)
+const CURRENCY = "ARS";                  // "ARS" | "EUR" | "USD" (solo cambia el símbolo visual)
 
 const PRODUCTS = [
-  { id:"rm-home", team:"Real Madrid", name:"Real Madrid 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"Real Madrid Home 25-26 (1).jpg" },
-  { id:"rm-away", team:"Real Madrid", name:"Real Madrid 25/26 Plaver Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"Real Madrid Away 25-26.png" },
-  { id:"fcb-home", team:"Barcelona", name:"Barcelona 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"IMG_3668.PNG" },
-  { id:"fcb-away", team:"Barcelona", name:"Barcelona 25/26 Plaver Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Barcelona Away 25-26.jpg" },
-  { id:"psg-home", team:"PSG", name:"PSG 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"PSG Home 25-26.jpg" },
-  { id:"atm-home", team:"Atlético de Madrid", name:"Atlético 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Atletico de Madrid Home 25-26.jpg" },
-  { id:"imi-home", team:"Inter Miami", name:"Inter Miami 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Inter Miami Home 25-26 (1).jpg" },
-  { id:"juv-third", team:"Juventus", name:"Juventus 24/25 Plaver Version · Third", price:40, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1542996966-2e31c00bae30?q=80&w=1200&auto=format&fit=crop" },
-  { id:"che-home", team:"Chelsea", name:"Chelsea 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Chelsea Home 25-26.jpg" },
-  { id:"tot-away", team:"Tottenham", name:"Tottenham 25/26 Plaver Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"Tottenham Away 25_26.PNG" }
+  // RETRO (ejemplos: podés reemplazar por tus fotos reales en img/retro/...)
+  { id:"juve-2003", category:"Retro", team:"Juventus", name:"Juventus 2003 Retro", price:50, sizes:["M","L"], img:"img/retro/juventus-2003.jpg" },
+  // EUROPA (ya traíamos estos modelos)
+  { id:"rm-home",  category:"Europa", team:"Real Madrid", name:"Real Madrid 25/26 · Local", price:45000, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1543340713-7e0a0a6a6ac1?q=80&w=1200&auto=format&fit=crop" },
+  { id:"rm-away",  category:"Europa", team:"Real Madrid", name:"Real Madrid 25/26 · Visitante", price:45000, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop" },
+  { id:"fcb-home", category:"Europa", team:"Barcelona", name:"Barcelona 25/26 · Local", price:44000, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1200&auto=format&fit=crop" },
+  { id:"fcb-away", category:"Europa", team:"Barcelona", name:"Barcelona 25/26 · Visitante (10 L. Yamal)", price:47000, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1496154704335-24d16bd1ae5c?q=80&w=1200&auto=format&fit=crop" },
+  { id:"psg-home", category:"Europa", team:"PSG", name:"PSG 25/26 · Local", price:43000, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1600486913747-55e67b0774d3?q=80&w=1200&auto=format&fit=crop" },
+  { id:"atm-home", category:"Europa", team:"Atlético de Madrid", name:"Atlético 25/26 · Local (19 J. Álvarez)", price:46000, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1518098268026-4e89f1a2cd8e?q=80&w=1200&auto=format&fit=crop" },
+  { id:"imi-home", category:"Europa", team:"Inter Miami", name:"Inter Miami 25/26 · Local (10 Messi)", price:52000, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1461897104016-0b3b00cc81ee?q=80&w=1200&auto=format&fit=crop" },
+  { id:"juv-third", category:"Europa", team:"Juventus", name:"Juventus 24/25 · Third", price:42000, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1542996966-2e31c00bae30?q=80&w=1200&auto=format&fit=crop" },
+  { id:"che-home", category:"Europa", team:"Chelsea", name:"Chelsea 25/26 · Local (parche campeón del mundo)", price:48000, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop" },
+  { id:"tot-away", category:"Europa", team:"Tottenham", name:"Tottenham 25/26 · Visitante", price:41000, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop" }
 ];
 
 // ----------------------------
@@ -212,14 +212,11 @@ const saveCart = ()=> localStorage.setItem('impulso_cart', JSON.stringify(state.
 // RENDER GRID
 // ----------------------------
 const grid = document.getElementById('grid');
-function renderGrid(){
-  const q = state.filterText.toLowerCase();
-  const items = PRODUCTS.filter(p=> (
-    (!state.filterTeam || p.team===state.filterTeam) &&
-    (!state.filterSize || p.sizes.includes(state.filterSize)) &&
-    (p.name.toLowerCase().includes(q) || p.team.toLowerCase().includes(q))
-  ));
-  grid.innerHTML = items.map(p=> `
+function renderGridTo(id, items){
+  const el = document.getElementById(id);
+  if(!el) return;
+  if(items.length===0){ el.innerHTML = '<div class="muted">No hay productos en esta categoría aún.</div>'; return; }
+  el.innerHTML = items.map(p=> `
     <article class="card">
       <div class="thumb">
         <img src="${p.img}" alt="${p.name}" onerror="this.parentElement.innerHTML='Sin imagen'"/>
@@ -231,6 +228,25 @@ function renderGrid(){
           <select id="size-${p.id}" class="input size">
             <option value="">Talle</option>
             ${p.sizes.map(s=>`<option>${s}</option>`).join('')}
+          </select>
+          <div class="price">${fmt(p.price)}</div>
+        </div>
+        <button class="btn" onclick="addToCart('${p.id}')">Agregar</button>
+      </div>
+    </article>
+  `).join('');
+}
+
+function renderAll(){
+  const q = state.filterText.toLowerCase();
+  const items = PRODUCTS.filter(p=> (
+    (!state.filterTeam || p.team===state.filterTeam) &&
+    (!state.filterSize || p.sizes.includes(state.filterSize)) &&
+    (p.name.toLowerCase().includes(q) || p.team.toLowerCase().includes(q))
+  ));
+  renderGridTo('grid-retro',  items.filter(p=>p.category==='Retro'));
+  renderGridTo('grid-europa', items.filter(p=>p.category==='Europa'));
+}
           </select>
           <div class="price">${fmt(p.price)}</div>
         </div>
@@ -319,7 +335,7 @@ function buildWhatsAppText(){
     'Datos de envío:',
     'Nombre y apellido:',
     'Ciudad y CP:',
-    'Método de pago: (Transferencia/Bizum/MP/Wise/PayPal)'
+    'Método de pago: (Transferencia/MP/Wise/PayPal)'
   ];
   return encodeURIComponent(lines.join('\n'));
 }
@@ -338,17 +354,14 @@ const teamFilter  = document.getElementById('teamFilter');
 const sizeFilter  = document.getElementById('sizeFilter');
 const clearBtn    = document.getElementById('clearFilters');
 
-searchInput.addEventListener('input', e=>{ state.filterText = e.target.value; renderGrid(); });
-teamFilter.addEventListener('change', e=>{ state.filterTeam = e.target.value; renderGrid(); });
-sizeFilter.addEventListener('change', e=>{ state.filterSize = e.target.value; renderGrid(); });
-clearBtn.addEventListener('click', ()=>{ state.filterText=''; state.filterTeam=''; state.filterSize=''; searchInput.value=''; teamFilter.value=''; sizeFilter.value=''; renderGrid(); });
+searchInput.addEventListener('input', e=>{ state.filterText = e.target.value; renderAll(); });
+teamFilter.addEventListener('change', e=>{ state.filterTeam = e.target.value; renderAll(); });
+sizeFilter.addEventListener('change', e=>{ state.filterSize = e.target.value; renderAll(); });
+clearBtn.addEventListener('click', ()=>{ state.filterText=''; state.filterTeam=''; state.filterSize=''; searchInput.value=''; teamFilter.value=''; sizeFilter.value=''; renderAll(); }); });
 
 // ----------------------------
 // INIT
 // ----------------------------
-renderGrid();
+renderAll();
 renderCart();
 document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
