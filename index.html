@@ -1,9 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IMPULSO · Indumentaria de Fútbol</title>
+  <meta name="description" content="Tienda simple y gratuita de IMPULSO (indumentaria de fútbol)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0e0e10;         /* negro profundo */
+      --card:#151518;       /* gris carbón */
+      --muted:#a1a1aa;      /* gris claro */
+      --text:#fafafa;       /* casi blanco */
+      --accent:#c7a86c;     /* dorado sutil */
+      --accent-2:#7a1d24;   /* bordó vino */
+    }
+    *{ box-sizing:border-box }
+    html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif }
+    a{ color:inherit; text-decoration:none }
+    img{ max-width:100%; display:block }
+    .container{ width:min(1200px, 92%); margin:auto }
+    /* Header */
+    header{ position:sticky; top:0; backdrop-filter:saturate(1.2) blur(6px); background:rgba(14,14,16,.7); border-bottom:1px solid #222; z-index:50 }
+    .nav{ display:flex; align-items:center; justify-content:space-between; padding:12px 0 }
+    .brand{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.5px }
+    .logo{ width:34px; height:34px; border-radius:9px; background:linear-gradient(135deg,var(--accent),#f4e3b0); display:grid; place-items:center; color:#1a1a1a; font-weight:900 }
+    .pill{ border:1px solid #2a2a2e; background:#141416; border-radius:999px; padding:6px 10px; color:var(--muted); font-size:12px }
+    .actions{ display:flex; align-items:center; gap:10px }
+    .btn{ border:1px solid #2a2a2e; background:#16161a; color:var(--text); padding:10px 14px; border-radius:12px; font-weight:600; cursor:pointer }
+    .btn:hover{ border-color:#3a3a40 }
+    .btn.accent{ background:linear-gradient(135deg, var(--accent), #e9cf8c); color:#1a1a1a; border:none }
+    /* Hero */
+    .hero{ display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center; padding:28px 0 8px }
+    .hero-card{  position: relative;
+  border-radius: 20px;
+  padding: 22px;
+  border:1px solid #232328;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.8)),
+    url("fondo champions.jpg") center/cover no-repeat; /* ← tu imagen de fondo */
+ }
+    .hero h1{ font-size:32px; line-height:1.1; margin:0 0 10px }
+    .hero p{ color:var(--muted); margin:0 0 16px }
+    .hero .badge{ display:inline-block; font-size:12px; color:#1a1a1a; background:linear-gradient(135deg, var(--accent), #f2e1a2); padding:6px 10px; border-radius:999px; font-weight:800 }
+    .hero .banner{ border-radius:16px; overflow:hidden; border:1px solid #26262c }
+    /* Filters */
+    .toolbar{ display:flex; gap:10px; align-items:center; justify-content:space-between; margin:14px 0 6px }
+    .search{ flex:1; display:flex; gap:8px }
+    .input{ flex:1; background:#141416; border:1px solid #26262c; padding:10px 12px; border-radius:12px; color:var(--text) }
+    .select{ background:#141416; border:1px solid #26262c; padding:10px 12px; border-radius:12px; color:var(--text) }
+    /* Grid */
+    .grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:16px; margin:16px 0 28px }
+    .card{ background:var(--card); border:1px solid #232328; border-radius:18px; overflow:hidden; display:flex; flex-direction:column }
+    .thumb{ aspect-ratio: 4/5; background:#0d0d0f; display:grid; place-items:center; font-size:13px; color:var(--muted) }
+    .content{ padding:12px 12px 14px; display:flex; flex-direction:column; gap:8px }
+    .title{ font-weight:700; font-size:15px }
+    .muted{ color:var(--muted); font-size:13px }
+    .price{ font-weight:800 }
+    .row{ display:flex; gap:8px; align-items:center }
+    .grow{ flex:1 }
+    .size{ width:100% }
+    /* Cart */
+    .cart{ position:fixed; right:18px; bottom:18px; width:360px; max-height:72vh; background:#151518; border:1px solid #2a2a30; border-radius:16px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 10px 40px rgba(0,0,0,.35) }
+    .cart header{ position:static; background:#121214; border-bottom:1px solid #24242a }
+    .cart h3{ margin:0; font-size:16px }
+    .cart-body{ padding:12px; overflow:auto; display:flex; flex-direction:column; gap:10px }
+    .item{ display:grid; grid-template-columns:52px 1fr auto; gap:10px; align-items:center; border:1px solid #24242a; padding:6px; border-radius:12px; background:#141416 }
+    .qty{ display:flex; align-items:center; gap:6px }
+    .qty button{ width:24px; height:24px; border-radius:8px; border:1px solid #31313a; background:#1a1a1f; color:#fff; cursor:pointer }
+    .cart-footer{ padding:12px; border-top:1px solid #24242a; display:grid; gap:10px }
+    .total{ display:flex; justify-content:space-between; font-weight:800 }
+    .hide{ display:none }
+    .floating{ position:fixed; right:18px; bottom:18px; }
+    .fab{ width:56px; height:56px; border-radius:16px; border:1px solid #2a2a30; background:linear-gradient(135deg,var(--accent),#e9cf8c); color:#1a1a1a; font-weight:900; font-size:13px; cursor:pointer; box-shadow:0 10px 30px rgba(0,0,0,.35) }
+    footer{ color:var(--muted); font-size:12px; padding:24px 0 60px; text-align:center; border-top:1px solid #1f1f24 }
+    /* Responsive */
+    @media (max-width: 1024px){ .grid{ grid-template-columns: repeat(3,1fr) } .hero{ grid-template-columns:1fr } .cart{ width:min(92vw, 420px) } }
+    @media (max-width: 640px){ .grid{ grid-template-columns: repeat(2,1fr) } .nav{ gap:8px } .pill{ display:none } }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">I</div>
+        <div>
+          <div style="font-size:15px; line-height:1;">IMPULSO</div>
+          <div class="muted" style="font-size:11px; line-height:1;">Indumentaria de fútbol</div>
+        </div>
+      </div>
+      <div class="actions">
+        <span class="pill">Tienda Oficial · GitHub Pages</span>
+        <button class="btn" id="toggleCart">Carrito</button>
+        <a class="btn accent" href="#productos">Ver productos</a>
+      </div>
+    </div>
+  </header>
 
-356025170931f5dddb14bd3b29f4ffa338bf9d32
+  <!-- HERO -->
+  <section class="container hero">
+    <div class="hero-card">
+      <span class="badge">NUEVO DROP 25/26</span>
+      <h1>TIENDA DE FUTBOL <span style="color:var(--accent)">La mejor calidad</span>.</h1>
+      <p>Stock inmediato en modelos top / Short's Player Version / Camisetas Retro, Plaver V y Fan V a un Click!
+        Consiguelo aqui en IMPULSO.</p>
+      <div class="row">
+        <a class="btn accent" href="#productos">Explorar catálogo</a>
+        <a class="btn" href="https://wa.me/5491135573396?text=Hola%20IMPULSO%2C%20quiero%20hacer%20un%20pedido" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+    <div class="banner">
+      <img src="https://images.unsplash.com/photo-1543322385-1df0c8a5d7ed?q=80&w=1600&auto=format&fit=crop" alt="Camisetas de fútbol" />
+    </div>
+  </section>
+
+  <!-- TOOLBAR -->
+  <section class="container toolbar">
+    <div class="search">
+      <input id="searchInput" class="input" placeholder="Buscar equipo o jugador (ej: Madrid, Messi)" />
+      <select id="teamFilter" class="select">
+        <option value="">Todos los equipos</option>
+        <option>Real Madrid</option>
+        <option>Barcelona</option>
+        <option>PSG</option>
+        <option>Inter Miami</option>
+        <option>Atlético de Madrid</option>
+        <option>Juventus</option>
+        <option>Chelsea</option>
+        <option>Tottenham</option>
+      </select>
+      <select id="sizeFilter" class="select">
+        <option value="">Todos los talles</option>
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+        <option>XL</option>
+      </select>
+    </div>
+    <button id="clearFilters" class="btn">Limpiar filtros</button>
+  </section>
+
+  <!-- GRID -->
+  <section id="productos" class="container">
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- CART PANEL -->
+  <aside id="cart" class="cart hide" aria-label="Carrito">
+    <header class="nav" style="padding:10px 12px">
+      <h3>Tu carrito</h3>
+      <button class="btn" id="closeCart">Cerrar</button>
+    </header>
+    <div class="cart-body" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="total"><span>Total</span><span id="cartTotal">$0</span></div>
+      <button class="btn accent" id="checkout">Finalizar por WhatsApp</button>
+      <small class="muted">Al finalizar, se abre WhatsApp con el detalle del pedido. Pagos en ARS por transferencia o Mercado Pago. Internacional: Wise/PayPal.</small>
+    </div>
+  </aside>
+
+  <!-- FLOATING FAB (mobile) -->
+  <div class="floating">
+    <button class="fab" id="fab">Carrito</button>
+  </div>
+
+  <footer>
+    © <span id="year"></span> IMPULSO · Indumentaria Deportiva. · <a href="#" class="muted">Política de cambios</a>
+  </footer>
+
+<script>
+// ----------------------------
+// CONFIGURACIÓN (editá acá)
+// ----------------------------
+const WHATSAPP_NUMBER = "5491135573396"; // ← REEMPLAZAR por tu número (cód. país + área + número, sin +)
+const CURRENCY = "EUR";                  // "ARS" | "EUR" | "USD" (solo cambia el símbolo visual)
+
+const PRODUCTS = [
+  { id:"rm-home", team:"Real Madrid", name:"Real Madrid 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"Real Madrid Home 25-26 (1).jpg" },
+  { id:"rm-away", team:"Real Madrid", name:"Real Madrid 25/26 Plaver Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"Real Madrid Away 25-26.png" },
+  { id:"fcb-home", team:"Barcelona", name:"Barcelona 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"IMG_3668.PNG" },
+  { id:"fcb-away", team:"Barcelona", name:"Barcelona 25/26 Plaver Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Barcelona Away 25-26.jpg" },
+  { id:"psg-home", team:"PSG", name:"PSG 25/26 Plaver Version · Local", price:40, sizes:["S","M","L","XL"], img:"PSG Home 25-26.jpg" },
+  { id:"atm-home", team:"Atlético de Madrid", name:"Atlético 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Atletico de Madrid Home 25-26.jpg" },
+  { id:"imi-home", team:"Inter Miami", name:"Inter Miami 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Inter Miami Home 25-26 (1).jpg" },
+  { id:"juv-third", team:"Juventus", name:"Juventus 24/25 Plaver Version · Third", price:40, sizes:["S","M","L","XL"], img:"https://images.unsplash.com/photo-1542996966-2e31c00bae30?q=80&w=1200&auto=format&fit=crop" },
+  { id:"che-home", team:"Chelsea", name:"Chelsea 25/26 Plaver Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Chelsea Home 25-26.jpg" },
+  { id:"tot-away", team:"Tottenham", name:"Tottenham 25/26 Plaver Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"Tottenham Away 25_26.PNG" }
+];
+
+// ----------------------------
+// UTILIDADES
+// ----------------------------
+const fmt = (n)=>{
+  const symbol = CURRENCY === 'EUR' ? '€' : (CURRENCY === 'USD' ? 'US$' : '$');
+  return symbol + new Intl.NumberFormat('es-AR').format(n);
+};
+
+const state = {
+  filterText: '',
+  filterTeam: '',
+  filterSize: '',
+  cart: JSON.parse(localStorage.getItem('impulso_cart')||'[]')
+};
+
+const saveCart = ()=> localStorage.setItem('impulso_cart', JSON.stringify(state.cart));
+
+// ----------------------------
+// RENDER GRID
+// ----------------------------
+const grid = document.getElementById('grid');
+function renderGrid(){
+  const q = state.filterText.toLowerCase();
+  const items = PRODUCTS.filter(p=> (
+    (!state.filterTeam || p.team===state.filterTeam) &&
+    (!state.filterSize || p.sizes.includes(state.filterSize)) &&
+    (p.name.toLowerCase().includes(q) || p.team.toLowerCase().includes(q))
+  ));
+  grid.innerHTML = items.map(p=> `
+    <article class="card">
+      <div class="thumb">
+        <img src="${p.img}" alt="${p.name}" onerror="this.parentElement.innerHTML='Sin imagen'"/>
+      </div>
+      <div class="content">
+        <div class="title">${p.name}</div>
+        <div class="muted">${p.team}</div>
+        <div class="row">
+          <select id="size-${p.id}" class="input size">
+            <option value="">Talle</option>
+            ${p.sizes.map(s=>`<option>${s}</option>`).join('')}
+          </select>
+          <div class="price">${fmt(p.price)}</div>
+        </div>
+        <button class="btn" onclick="addToCart('${p.id}')">Agregar</button>
+      </div>
+    </article>
+  `).join('');
+}
+
+// ----------------------------
+// CART
+// ----------------------------
+const cartEl = document.getElementById('cart');
+const itemsEl = document.getElementById('cartItems');
+const totalEl = document.getElementById('cartTotal');
+
+function addToCart(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  const sel = document.getElementById('size-'+id);
+  const size = sel && sel.value; if(!size){ alert('Elegí un talle'); return; }
+  const key = id+"-"+size;
+  const found = state.cart.find(x=>x.key===key);
+  if(found){ found.qty++; }
+  else{
+    state.cart.push({ key, id, name:p.name, team:p.team, price:p.price, size, qty:1, img:p.img });
+  }
+  saveCart();
+  openCart();
+  renderCart();
+}
+
+function removeFromCart(key){
+  state.cart = state.cart.filter(x=>x.key!==key);
+  saveCart();
+  renderCart();
+}
+
+function changeQty(key,delta){
+  const it = state.cart.find(x=>x.key===key); if(!it) return;
+  it.qty += delta; if(it.qty<=0){ removeFromCart(key); return; }
+  saveCart();
+  renderCart();
+}
+
+function cartTotal(){
+  return state.cart.reduce((a,b)=> a + b.price*b.qty, 0);
+}
+
+function renderCart(){
+  if(state.cart.length===0){ itemsEl.innerHTML = '<div class="muted">Tu carrito está vacío.</div>'; }
+  else{
+    itemsEl.innerHTML = state.cart.map(it=>`
+      <div class="item">
+        <img src="${it.img}" alt="${it.name}" style="width:52px; height:52px; object-fit:cover; border-radius:8px"/>
+        <div>
+          <div style="font-weight:700; font-size:13px">${it.name}</div>
+          <div class="muted" style="font-size:12px">Talle ${it.size} · ${fmt(it.price)}</div>
+        </div>
+        <div class="qty">
+          <button onclick="changeQty('${it.key}',-1)">-</button>
+          <span>${it.qty}</span>
+          <button onclick="changeQty('${it.key}',1)">+</button>
+        </div>
+      </div>
+    `).join('');
+  }
+  totalEl.textContent = fmt(cartTotal());
+}
+
+function openCart(){ cartEl.classList.remove('hide'); }
+function closeCart(){ cartEl.classList.add('hide'); }
+
+document.getElementById('toggleCart').onclick = ()=> cartEl.classList.toggle('hide');
+document.getElementById('closeCart').onclick = closeCart;
+document.getElementById('fab').onclick = ()=> cartEl.classList.toggle('hide');
+
+// ----------------------------
+// CHECKOUT (WhatsApp)
+// ----------------------------
+function buildWhatsAppText(){
+  const lines = [
+    'Hola IMPULSO! 👋 Quiero confirmar este pedido:',
+    ...state.cart.map(it=>`• ${it.qty} x ${it.name} (Talle ${it.size}) – ${fmt(it.price*it.qty)}`),
+    `Total: ${fmt(cartTotal())}`,
+    '',
+    'Datos de envío:',
+    'Nombre y apellido:',
+    'Ciudad y CP:',
+    'Método de pago: (Transferencia/Bizum/MP/Wise/PayPal)'
+  ];
+  return encodeURIComponent(lines.join('\n'));
+}
+
+document.getElementById('checkout').onclick = ()=>{
+  if(state.cart.length===0){ alert('Tu carrito está vacío'); return; }
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppText()}`;
+  window.open(url, '_blank');
+};
+
+// ----------------------------
+// FILTERS & SEARCH
+// ----------------------------
+const searchInput = document.getElementById('searchInput');
+const teamFilter  = document.getElementById('teamFilter');
+const sizeFilter  = document.getElementById('sizeFilter');
+const clearBtn    = document.getElementById('clearFilters');
+
+searchInput.addEventListener('input', e=>{ state.filterText = e.target.value; renderGrid(); });
+teamFilter.addEventListener('change', e=>{ state.filterTeam = e.target.value; renderGrid(); });
+sizeFilter.addEventListener('change', e=>{ state.filterSize = e.target.value; renderGrid(); });
+clearBtn.addEventListener('click', ()=>{ state.filterText=''; state.filterTeam=''; state.filterSize=''; searchInput.value=''; teamFilter.value=''; sizeFilter.value=''; renderGrid(); });
 
 // ----------------------------
 // INIT
 // ----------------------------
-renderAll();
+renderGrid();
 renderCart();
 document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
