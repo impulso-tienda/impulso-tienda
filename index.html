@@ -80,6 +80,38 @@
     /* Responsive */
     @media (max-width: 1024px){ .grid{ grid-template-columns: repeat(3,1fr) } .hero{ grid-template-columns:1fr } .cart{ width:min(92vw, 420px) } }
     @media (max-width: 640px){ .grid{ grid-template-columns: repeat(2,1fr) } .nav{ gap:8px } .pill{ display:none } }
+ /* 2 columnas en el hero */
+.hero{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:28px;
+  align-items:stretch;
+  padding:28px 0 8px;
+}
+
+/* Card base */
+.hero-card{
+  background: linear-gradient(180deg,#18181c,#121214);
+  border:1px solid #232328;
+  border-radius:20px;
+  padding:22px;
+}
+
+/* Fondo del botón WhatsApp */
+.btn.whatsapp{
+  background-color:#25D366;
+  color:#fff;
+  font-weight:600;
+  border:none;
+}
+.btn.whatsapp:hover{ background-color:#20ba5a; }
+
+/* Card derecho con imagen de fondo */
+.bg-libertadores{
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.8)),
+    url("img/fondo-libertadores.jpg") center/cover no-repeat;
+}
   </style> 
 </head>
 <body>
@@ -103,31 +135,28 @@
 
   <!-- HERO -->
   <section class="container hero">
-   <!-- Cuadro izquierdo -->
-    <div class="hero-card">
-      <span class="badge">NUEVO DROP 25/26</span>
-      <h1>TIENDA DE FUTBOL <span style="color:var(--accent)">La mejor calidad</span>.</h1>
-      <p>Stock inmediato en modelos top / Short's Player Version / Camisetas Retro, Player V y Fan V a un Click!
-        Consiguelo aqui en IMPULSO.</p>
-      <div class="row">
-        <a class="btn accent" href="https://instagram.com/impulsooficial_" target="_blank">Instagram</a>
-       <a class="btn whatsapp" href="https://wa.me/5491135573396" target="_blank">WhatsApp</a>
-      </div>
+  <!-- Cuadro izquierdo -->
+  <div class="hero-card">
+    <span class="badge">NUEVO DROP 25/26</span>
+    <h1>TIENDA DE FUTBOL <span style="color:var(--accent)">La mejor calidad.</span></h1>
+    <p>Stock inmediato en modelos top / Shorts / Player Version / Camisetas Retro, Player V y Fan V a un Click! Consíguelo aquí en IMPULSO.</p>
+    <div class="row">
+      <a class="btn accent" href="https://instagram.com/impulsooficial_" target="_blank">Instagram</a>
+      <a class="btn whatsapp" href="https://wa.me/5491135573396" target="_blank">WhatsApp</a>
     </div>
-      <img src="https://images.unsplash.com/photo-1543322385-1df0c8a5d7ed?q=80&w=1600&auto=format&fit=crop" />
-    
-<!-- Cuadro derecho  -->
-     <div class="hero-card bg-libertadores">
-      <span class="badge">SE UNA ESTRELLA</span>
-      <h1>PERSONALIZA TU PRENDA <span style="color:var(--accent)">Como mas te guste</span>.</h1>
-      <p>Ponele tu NUMERO favorito y agregale el parche que mas te guste! Vesti como tus IDOLO.</p>
-      <div class="row">
-        <a class="btn accent" href="https://www.tiktok.com/@impulsooficial_?_t=ZS-8zKcKNNCxWi&_r=1" target="_blank">TIKTOK</a>
-       <a class="btn whatsapp" href="https://wa.me/5491135573396" target="_blank">WhatsApp</a>
-      </div>
+  </div>
+
+  <!-- Cuadro derecho con fondo -->
+  <div class="hero-card bg-libertadores">
+    <span class="badge">SE UNA ESTRELLA</span>
+    <h1>PERSONALIZA TU PRENDA <span style="color:var(--accent)">Como más te guste.</span></h1>
+    <p>Poné tu NÚMERO favorito y agregale el parche que más te guste. ¡Vestí como tus ÍDOLOS!</p>
+    <div class="row">
+      <a class="btn accent" href="https://www.tiktok.com/@impulsooficial_" target="_blank">TikTok</a>
+      <a class="btn whatsapp" href="https://wa.me/5491135573396" target="_blank">WhatsApp</a>
     </div>
-      <img src="fondo libertadores.jpg" />
-  </section>
+  </div>
+</section>
 
   <!-- TOOLBAR -->
   <section class="container toolbar">
