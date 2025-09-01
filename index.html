@@ -222,16 +222,16 @@
 
   <!-- TOOLBAR -->
   <section class="container toolbar">
-  <!-- Columna izquierda -->
+  <!-- Columna izquierda: buscador -->
   <div class="search">
     <input id="searchInput" class="input" placeholder="Buscar equipo o jugador (ej: Madrid, Messi)" />
   </div>
 
-  <!-- Columna derecha -->
+  <!-- Columna derecha: filtros -->
   <div class="filters-right">
     <select id="teamFilter" class="select">
-   <option value="">Todos los equipos</option>
-        <option>Real Madrid</option>
+      <option value="">Todos los equipos</option>
+   <option>Real Madrid</option>
         <option>Barcelona</option>
         <option>PSG</option>
         <option>Inter Miami</option>
@@ -254,7 +254,8 @@
         <option>Fluminense</option>
         <option>Santos</option>
         <option>Sao Paulo</option>
-      </select>
+    </select>
+
     <select id="sizeFilter" class="select">
       <option value="">Todos los talles</option>
       <option>S</option>
@@ -262,10 +263,10 @@
       <option>L</option>
       <option>XL</option>
     </select>
+
     <button id="clearFilters" class="btn">Limpiar filtros</button>
   </div>
 </section>
-
   <!-- GRID -->
   <section id="productos" class="container">
     <div class="grid" id="grid"></div>
