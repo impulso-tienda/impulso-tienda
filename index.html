@@ -61,13 +61,31 @@
     .hero .badge{ display:inline-block; font-size:12px; color:#1a1a1a; background:linear-gradient(135deg, var(--accent), #f2e1a2); padding:6px 10px; border-radius:999px; font-weight:800 }
     .hero .banner{ border-radius:16px; overflow:hidden; border:1px solid #26262c }
     /* Filters */
-    .toolbar{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  justify-content:center;  /* 👈 centra todo */
-  margin:14px 0 6px;
-  flex-wrap:wrap;          /* 👈 se acomoda en pantallas chicas */
+    /* Centrar la barra de búsqueda + filtros */
+.toolbar{
+  display: flex !important;
+  justify-content: center !important;  /* centra todo */
+  align-items: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap !important;          /* en mobile baja a otra línea */
+}
+
+/* El contenedor de buscador y selects no debe ocupar todo el ancho */
+.toolbar .search{
+  display: flex !important;
+  gap: 8px !important;
+  flex: 0 0 auto !important;
+}
+
+/* El input del buscador: ancho razonable y sin flex:1 */
+.toolbar .input{
+  flex: 0 0 auto !important;
+  width: min(420px, 70vw) !important;  /* ajustá a gusto (ej. 360px) */
+}
+
+/* Los selects con ancho mínimo para que no se achiquen de más */
+.toolbar .select{
+  min-width: 160px;
 }
     .search{ flex:1; display:flex; gap:8px }
     .input{ flex:1; background:#141416; border:1px solid #26262c; padding:10px 12px; border-radius:12px; color:var(--text) }
