@@ -31,7 +31,12 @@
     .pill{ border:1px solid #2a2a2e; background:#141416; border-radius:999px; padding:6px 10px; color:var(--muted); font-size:12px }
     .actions{ display:flex; align-items:center; gap:10px }
     .btn{ border:1px solid #2a2a2e; background:#16161a; color:var(--text); padding:10px 14px; border-radius:12px; font-weight:600; cursor:pointer }
-    .btn:hover{ border-color:#3a3a40 }
+    .btn:hover{
+  background: linear-gradient(135deg, var(--accent), #e9cf8c);
+  color:#1a1a1a;
+  border:none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
     .btn.accent{ background:linear-gradient(135deg, var(--accent), #e9cf8c); color:#1a1a1a; border:none }
     /* Hero */
     .hero{ display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center; padding:28px 0 8px }
