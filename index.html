@@ -61,26 +61,27 @@
     .hero .badge{ display:inline-block; font-size:12px; color:#1a1a1a; background:linear-gradient(135deg, var(--accent), #f2e1a2); padding:6px 10px; border-radius:999px; font-weight:800 }
     .hero .banner{ border-radius:16px; overflow:hidden; border:1px solid #26262c }
     /* Filters */
-    /* Centrar la barra de búsqueda + filtros */
-.toolbar{
-  display: flex !important;
-  justify-content: center !important;  /* centra todo */
-  align-items: center !important;
-  gap: 12px !important;
-  flex-wrap: wrap !important;          /* en mobile baja a otra línea */
-}
-
-/* El contenedor de buscador y selects no debe ocupar todo el ancho */
+/* El buscador ocupa todo el ancho */
 .toolbar .search{
-  display: flex !important;
-  gap: 8px !important;
-  flex: 0 0 auto !important;
+  display: flex;
+  gap: 8px;
+  width: 100%;
 }
 
-/* El input del buscador: ancho razonable y sin flex:1 */
+/* Input del buscador ocupa todo el espacio disponible */
 .toolbar .input{
-  flex: 0 0 auto !important;
-  width: min(420px, 70vw) !important;  /* ajustá a gusto (ej. 360px) */
+  flex: 1;
+  min-width: 0;  /* evita desbordes */
+}
+
+/* Los selects mantienen ancho fijo */
+.toolbar .select{
+  min-width: 160px;
+}
+
+/* El botón de limpiar filtros ocupa solo lo necesario */
+#clearFilters{
+  align-self: flex-end;  /* queda a la derecha */
 }
 
 /* Los selects con ancho mínimo para que no se achiquen de más */
