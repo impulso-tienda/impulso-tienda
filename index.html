@@ -61,32 +61,29 @@
     .hero .badge{ display:inline-block; font-size:12px; color:#1a1a1a; background:linear-gradient(135deg, var(--accent), #f2e1a2); padding:6px 10px; border-radius:999px; font-weight:800 }
     .hero .banner{ border-radius:16px; overflow:hidden; border:1px solid #26262c }
     /* Filters */
-/* El buscador ocupa todo el ancho */
+/* Contenedor de filtros en dos columnas */
+.toolbar{
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* izquierda y derecha */
+  gap: 28px;
+  margin: 14px 0 6px;
+  align-items: center;
+}
+
+/* Input de búsqueda ocupa toda la columna izquierda */
 .toolbar .search{
-  display: flex;
-  gap: 8px;
   width: 100%;
 }
 
-/* Input del buscador ocupa todo el espacio disponible */
 .toolbar .input{
-  flex: 1;
-  min-width: 0;  /* evita desbordes */
+  width: 100%;   /* ocupa todo el ancho */
 }
 
-/* Los selects mantienen ancho fijo */
-.toolbar .select{
-  min-width: 160px;
-}
-
-/* El botón de limpiar filtros ocupa solo lo necesario */
-#clearFilters{
-  align-self: flex-end;  /* queda a la derecha */
-}
-
-/* Los selects con ancho mínimo para que no se achiquen de más */
-.toolbar .select{
-  min-width: 160px;
+/* Selects y botón ocupan la columna derecha */
+.toolbar .filters-right{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start; /* pegados al inicio de la columna */
 }
     .search{ flex:1; display:flex; gap:8px }
     .input{ flex:1; background:#141416; border:1px solid #26262c; padding:10px 12px; border-radius:12px; color:var(--text) }
@@ -213,10 +210,15 @@
 
   <!-- TOOLBAR -->
   <section class="container toolbar">
-    <div class="search">
-      <input id="searchInput" class="input" placeholder="Buscar equipo o jugador (ej: Madrid, Messi)" />
-      <select id="teamFilter" class="select">
-        <option value="">Todos los equipos</option>
+  <!-- Columna izquierda -->
+  <div class="search">
+    <input id="searchInput" class="input" placeholder="Buscar equipo o jugador (ej: Madrid, Messi)" />
+  </div>
+
+  <!-- Columna derecha -->
+  <div class="filters-right">
+    <select id="teamFilter" class="select">
+   <option value="">Todos los equipos</option>
         <option>Real Madrid</option>
         <option>Barcelona</option>
         <option>PSG</option>
@@ -240,17 +242,17 @@
         <option>Fluminense</option>
         <option>Santos</option>
         <option>Sao Paulo</option>
-      </select>
-      <select id="sizeFilter" class="select">
-        <option value="">Todos los talles</option>
-        <option>S</option>
-        <option>M</option>
-        <option>L</option>
-        <option>XL</option>
-      </select>
-    </div>
+      </select>
+    <select id="sizeFilter" class="select">
+      <option value="">Todos los talles</option>
+      <option>S</option>
+      <option>M</option>
+      <option>L</option>
+      <option>XL</option>
+    </select>
     <button id="clearFilters" class="btn">Limpiar filtros</button>
-  </section>
+  </div>
+</section>
 
   <!-- GRID -->
   <section id="productos" class="container">
