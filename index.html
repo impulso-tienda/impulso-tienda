@@ -61,9 +61,8 @@
     .hero .badge{ display:inline-block; font-size:12px; color:#1a1a1a; background:linear-gradient(135deg, var(--accent), #f2e1a2); padding:6px 10px; border-radius:999px; font-weight:800 }
     .hero .banner{ border-radius:16px; overflow:hidden; border:1px solid #26262c }
     /* Filters */
-/* Contenedor de filtros en dos columnas */
-/* === Toolbar con el mismo layout que el hero === */
-.toolbar{
+/* === TOOLBAR con el MISMO layout que el hero === */
+.container.toolbar{
   display: grid !important;
   grid-template-columns: 1.1fr 0.9fr !important; /* igual que .hero */
   gap: 28px !important;
@@ -71,31 +70,34 @@
   margin: 14px 0 6px !important;
 }
 
-/* Columna izquierda: buscador a todo el ancho */
-.toolbar .search{
+/* Columna izquierda: buscador a TODO el ancho */
+.container.toolbar .search{
   width: 100% !important;
 }
-.toolbar .search .input{
+.container.toolbar .search .input{
   width: 100% !important;
   flex: 0 0 auto !important;
 }
 
-/* Columna derecha: filtros alineados al inicio */
-.toolbar .filters-right{
+/* Columna derecha: filtros alineados al INICIO de la 2ª columna */
+.container.toolbar .filters-right{
   display: flex !important;
   gap: 10px !important;
   justify-content: flex-start !important;
-  flex-wrap: wrap;
+  flex-wrap: wrap !important;
 }
-.toolbar .filters-right .select{ min-width: 160px; }
+.container.toolbar .filters-right .select{ min-width: 160px; }
+.container.toolbar #clearFilters{ white-space: nowrap; }
 
-/* Responsive: en tablets/móvil, 1 columna */
+/* Responsive: en tablets/móvil pasa a 1 columna */
 @media (max-width:1024px){
-  .toolbar{
+  .container.toolbar{
     grid-template-columns: 1fr !important;
     gap: 12px !important;
   }
-  .toolbar .filters-right{ justify-content: center; }
+  .container.toolbar .filters-right{
+    justify-content: center !important;
+  }
 }
     .search{ flex:1; display:flex; gap:8px }
     .input{ flex:1; background:#141416; border:1px solid #26262c; padding:10px 12px; border-radius:12px; color:var(--text) }
@@ -256,12 +258,9 @@
         <option>Sao Paulo</option>
     </select>
 
-    <select id="sizeFilter" class="select">
+   <select id="sizeFilter" class="select">
       <option value="">Todos los talles</option>
-      <option>S</option>
-      <option>M</option>
-      <option>L</option>
-      <option>XL</option>
+      <option>S</option><option>M</option><option>L</option><option>XL</option>
     </select>
 
     <button id="clearFilters" class="btn">Limpiar filtros</button>
