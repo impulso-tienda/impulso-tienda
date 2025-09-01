@@ -62,28 +62,40 @@
     .hero .banner{ border-radius:16px; overflow:hidden; border:1px solid #26262c }
     /* Filters */
 /* Contenedor de filtros en dos columnas */
+/* === Toolbar con el mismo layout que el hero === */
 .toolbar{
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* izquierda y derecha */
-  gap: 28px;
-  margin: 14px 0 6px;
-  align-items: center;
+  display: grid !important;
+  grid-template-columns: 1.1fr 0.9fr !important; /* igual que .hero */
+  gap: 28px !important;
+  align-items: center !important;
+  margin: 14px 0 6px !important;
 }
 
-/* Input de búsqueda ocupa toda la columna izquierda */
+/* Columna izquierda: buscador a todo el ancho */
 .toolbar .search{
-  width: 100%;
+  width: 100% !important;
+}
+.toolbar .search .input{
+  width: 100% !important;
+  flex: 0 0 auto !important;
 }
 
-.toolbar .input{
-  width: 100%;   /* ocupa todo el ancho */
-}
-
-/* Selects y botón ocupan la columna derecha */
+/* Columna derecha: filtros alineados al inicio */
 .toolbar .filters-right{
-  display: flex;
-  gap: 10px;
-  justify-content: flex-start; /* pegados al inicio de la columna */
+  display: flex !important;
+  gap: 10px !important;
+  justify-content: flex-start !important;
+  flex-wrap: wrap;
+}
+.toolbar .filters-right .select{ min-width: 160px; }
+
+/* Responsive: en tablets/móvil, 1 columna */
+@media (max-width:1024px){
+  .toolbar{
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .toolbar .filters-right{ justify-content: center; }
 }
     .search{ flex:1; display:flex; gap:8px }
     .input{ flex:1; background:#141416; border:1px solid #26262c; padding:10px 12px; border-radius:12px; color:var(--text) }
