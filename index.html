@@ -417,36 +417,36 @@ function renderGrid(){
     (p.name.toLowerCase().includes(q) || p.team.toLowerCase().includes(q))
   ));
 
-  grid.innerHTML = items.map(p=>{
-    const patches = Array.isArray(p.patches) && p.patches.length ? p.patches : PATCH_OPTIONS;
-    return `
-      <article class="card">
-        <div class="thumb">
-          <img src="${p.img}" alt="${p.name}" onerror="this.parentElement.innerHTML='Sin imagen'"/>
+ grid.innerHTML = items.map(p=>{
+  const patches = Array.isArray(p.patches) && p.patches.length ? p.patches : PATCH_OPTIONS;
+  return `
+    <article class="card">
+      <div class="thumb">
+        <img src="${p.img}" alt="${p.name}" onerror="this.parentElement.innerHTML='Sin imagen'"/>
+      </div>
+      <div class="content">
+        <div class="title">${p.name}</div>
+        <div class="muted">${p.team}</div>
+
+        <div class="row row-selects">
+          <select id="size-${p.id}" class="input size">
+            <option value="">Talle</option>
+            ${p.sizes.map(s => <option>${s}</option>).join('')}
+          </select>
+
+          <select id="patch-${p.id}" class="input patch">
+            <option value="">Parches</option>
+            ${patches.map(pa => <option>${pa}</option>).join('')}
+          </select>
+
+          <div class="price">${fmt(p.price)}</div>
         </div>
-        <div class="content">
-          <div class="title">${p.name}</div>
-          <div class="muted">${p.team}</div>
 
-          <div class="row row-selects">
-            <select id="size-${p.id}" class="input size">
-              <option value="">Talle</option>
-              ${p.sizes.map(s=><option>${s}</option>).join('')}
-            </select>
-
-            <select id="patch-${p.id}" class="input patch">
-              <option value="">Parches</option>
-              ${patches.map(pa=><option>${pa}</option>).join('')}
-            </select>
-
-            <div class="price">${fmt(p.price)}</div>
-          </div>
-
-          <button class="btn" onclick="addToCart('${p.id}')">Agregar</button>
-        </div>
-      </article>
-    `;
-  }).join('');
+        <button class="btn" onclick="addToCart('${p.id}')">Agregar</button>
+      </div>
+    </article>
+  `;
+}).join('');
 }
 
 // ----------------------------
