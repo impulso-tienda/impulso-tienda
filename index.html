@@ -175,7 +175,7 @@
   border:none;
 }
 .btn.whatsapp:hover{ background-color:#20ba5a; }
-}
+
   </style> 
 </head>
 <body>
@@ -302,62 +302,62 @@ const WHATSAPP_NUMBER = "5491135573396"; // ← REEMPLAZAR por tu número (cód.
 const CURRENCY = "EUR";                  // "ARS" | "EUR" | "USD" (solo cambia el símbolo visual)
 
 const PRODUCTS = [
-  { id:"rm-home", team:"Real Madrid", name:"Real Madrid 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","La Liga","Champions League","Mundial de Clubes"], img:"Real Madrid Home 25-26 (1).jpg" },
-  { id:"rm-away", team:"Real Madrid", name:"Real Madrid 25/26 Player Version · Visitante", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","La Liga","Champions League","Mundial de Clubes"], img:"Real Madrid Away 25-26.png" },
-  { id:"rm-3rd", team:"Real Madrid", name:"Real Madrid 25/26 Player Version · 3rd", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","La Liga","Champions League","Mundial de Clubes"], img:"Real Madrid 3rd 25-26.jpg" },
-  { id:"rm-retro", team:"Real Madrid", name:"Real Madrid Retro Bwin · Visitante", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","La Liga","Champions League","Mundial de Clubes"], img:"img/Real Madrid Retro Bwin Negro.jpg" },
-  { id:"fcb-home", team:"Barcelona", name:"Barcelona 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","La Liga","Champions League","Mundial de Clubes"], img:"IMG_3668.PNG" },
-  { id:"fcb-away", team:"Barcelona", name:"Barcelona 25/26 Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","La Liga","Champions League","Mundial de Clubes"], img:"Barcelona Away 25-26.jpg" },
-  { id:"fcb-retro", team:"Barcelona", name:"Barcelona Retro 2009 · Local ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","La Liga","Champions League","Mundial de Clubes"], img:"img/Barcelona Retro Unicef 2.jpg" },
-  { id:"fcb-retro", team:"Barcelona", name:"Barcelona Retro 2015 · Local ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","La Liga","Champions League","Mundial de Clubes"], img:"img/Barcelona Retro Qatar Airways.jpg" },
-  { id:"atm-home", team:"Atlético de Madrid", name:"Atlético 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","La Liga","Champions League","Mundial de Clubes"], img:"Atletico de Madrid Home 25-26.jpg" },
-  { id:"atm-retro", team:"Atlético de Madrid", name:"Atlético 25/26 Retro Marbella · Visitante ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","La Liga","Champions League"],img:"img/Atletico de Madrid Retro Marbella.jpg" },
-  { id:"psg-home", team:"PSG", name:"PSG 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Ligue 1 ","Campeon Champions League","Champions League","Mundial de Clubes"], img:"PSG Home 25-26.jpg" },
-  { id:"psg-retro", team:"PSG", name:"PSG 25/26 Retro Opel · Visitante", price:35, sizes:["S","M","L","XL"],  patches:["Sin parche","Ligue 1 ","Champions League"],img:"img/PSG Retro Opel.jpg" },
-  { id:"liv-home", team:"Liverpool", name:"Liverpool 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League","Mundial de Clubes"], img:"Liverpool Home 25-26.jpg" },
-  { id:"liv-away", team:"Liverpool", name:"Liverpool 25/26 Player Version · Visitante", price:40, sizes:["S","M","L","XL"],  patches:["Sin parche","Premier League","Champions League","Mundial de Clubes"], img:"Liverpool 3rd 25-26.jpg" },
-  { id:"liv-retro", team:"Liverpool", name:"Liverpool 24/25 Player Version · 3rd", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League"], img:"img/Liverpool 3rd 24-25.jpg" },
-  { id:"liv-retro", team:"Liverpool", name:"Liverpool Retro Carlsberg · Local", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League"], img:"img/Liverpool Retro Carlsberg.jpg" },
-  { id:"man-home", team:"Manchester City", name:"Manchester City 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League","Mundial de Clubes"], img:"IMG_3665.PNG" },
-  { id:"man-away", team:"Manchester City", name:"Manchester City 25/26 Player Version · Visitante", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League","Mundial de Clubes"], img:"IMG_3667.PNG" },
-  { id:"utd-home", team:"Manchester United", name:"Manchester United 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League"], img:"Man United Home 25-26.jpg" },
-  { id:"utd-away", team:"Manchester United", name:"Manchester United 25/26 Player Version · Visitante", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League"], img:"img/27686C55-08D7-485F-8BA9-276F6B271370.jpg" },
-  { id:"tot-home", team:"Tottenham", name:"Tottenham 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League"], img:"Tottenham Home 25-26.PNG" },
-  { id:"tot-away", team:"Tottenham", name:"Tottenham 25/26 Player Version · Visitante", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League"], img:"Tottenham Away 25_26.PNG" },
-  { id:"ars-home", team:"Arsenal", name:"Arsenal 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League"], img:"img/Arsenal Home 25-26.jpg" },
-  { id:"ars-away", team:"Arsenal", name:"Arsenal 25/26 Player Version · Visitante", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League"], img:"img/Arsenal Away 25-26.jpg" },
-  { id:"che-home", team:"Chelsea", name:"Chelsea 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League","Mundial de Clubes","Campeon Mundial de Clubes"], img:"Chelsea Home 25-26.jpg" },
-  { id:"che-away", team:"Chelsea", name:"Chelsea 25/26 Player Version · Visitantte ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League","Mundial de Clubes","Campeon Mundial de Clubes"], img:"img/CHELSEA 25_26 AWAY.PNG" },
-  { id:"che-retro", team:"Chelsea", name:"Chelsea Retro Samsung · Local ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League"], img:"img/Chelsea Retro Samsung.jpg" },
-  { id:"che-retro", team:"Chelsea", name:"Chelsea Retro Umbro · Local ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","Premier League","Champions League"], img:"img/Chelsea Retro Umbro Samsung.jpg" },
-  { id:"imi-home", team:"Inter Miami", name:"Inter Miami 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","MLS","Mundial de Clubes"], img:"Inter Miami Home 25-26 (1).jpg" },
-  { id:"imi-away", team:"Inter Miami", name:"Inter Miami 25/26 Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","MLS","Mundial de Clubes"], img:"img/Inter Miami Away 25-26.jpg" },
-  { id:"atl-home", team:"Atlanta United", name:"Atlanta United 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"],  patches:["Sin parche","MLS"], img:"img/Atlanta United Home 25-26.jpg" },
-  { id:"nyf-home", team:"New York FC", name:"New York FC 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"],  patches:["Sin parche","MLS"], img:"img/NYC FC Home 25-26.jpg" },
-  { id:"juv-home", team:"Juventus", name:"Juventus 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"],  patches:["Sin parche","Serie A","Mundial de Clubes","Champions League"], img:"Juventus Home 25-26.jpg" },
-  { id:"juv-home", team:"Juventus", name:"Juventus 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Serie A","Mundial de Clubes","Champions League"], img:"Juventus Away 25-26.jpg" },
-  { id:"juv-retro", team:"Juventus", name:"Juventus Retro Balocco · Local", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","Serie A","Champions League"], img:"img/Juventus Retro Balocco.jpg" },
-  { id:"juv-retro", team:"Juventus", name:"Juventus Retro Jeep · Local", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","Serie A","Champions League"], img:"img/Juventus Retro JEEP.jpg" },
-  { id:"int-home", team:"Inter de Milan", name:"Inter de Milan 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Serie A","Mundial de Clubes","Champions League"], img:"Inter Home 25-26.jpg" },
-  { id:"int-away", team:"Inter de Milan", name:"Inter de Milan 25/26 Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Serie A","Mundial de Clubes","Champions League"], img:"Inter Away 25-26.jpg" },
-  { id:"int-retro", team:"Inter de Milan", name:"Inter de Milan Retro Pirelli · Local ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","Serie A","Champions League"], img:"img/Inter Retro Pirelli 2.jpg" },
-  { id:"int-retro", team:"Inter de Milan", name:"Inter de Milan Retro Pirelli · Visitante ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","Serie A","Champions League"],img:"img/Inter Retro Away Pirelli.jpg" },
-  { id:"mil-home", team:"AC Milan", name:"AC Milan 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Serie A","Champions League"],img:"AC Milan Home 25-26.jpg" },
-  { id:"mil-retro", team:"AC Milan", name:"AC Milan Retro Bwin · Local ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","Serie A","Champions League"], img:"img/✅AC Milan Retro Bwin.jpg" },
-  { id:"mil-retro", team:"AC Milan", name:"AC Milan Retro Fly Emirates · Local ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","Serie A","Champions League"], img:"img/✅AC Milan Retro Fly Emirates.jpg" },
-  { id:"mil-retro", team:"AC Milan", name:"AC Milan Retro Fly Emirates · Local ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","Serie A","Champions League"], img:"img/AC Milan Retro Fly Emirates Long Sleeve.jpg" },
-  { id:"bay-home", team:"Bayern Munich", name:"Bayern Munich 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Bundesliga","Mundial de Clubes","Champions League"], img:"Bayern Munich 3rd 25-26.jpg" },
-  { id:"bay-away", team:"Bayern Munich", name:"Bayern Munich 25/26 Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Bundesliga","Mundial de Clubes","Champions League"], img:"Bayern Munich Away 25-26.jpg" },
-  { id:"bay-retro", team:"Bayern Munich", name:"Bayern Munich Retro Opel · Local ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","Bundesliga","Champions League"], img:"img/Bayern Munich Retro 1-1.jpg" },
-  { id:"bay-retro", team:"Bayern Munich", name:"Bayern Munich Retro Opel · Visitante ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","Bundesliga","Champions League"], img:"img/Bayern Munich Retro Opel.jpg" },
-  { id:"boc-home", team:"Boca Juniors", name:"Boca Juniors  25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","LPF","Mundial de Clubes","Libertadores","Sudamericana"], img:"Boca Jrs Home 25-26 (1).jpg" },
-  { id:"boc-away", team:"Boca Juniors ", name:"Boca Juniors  25/26 Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","LPF","Mundial de Clubes","Libertadores","Sudamericana"], img:"Boca Jr Away 25_26.png" },
-  { id:"boc-retro", team:"Boca Juniors", name:"Boca Juniors  Retro 81' · Local ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","LPF","Libertadores"], img:"img/Boca Jrs Retro 81' 2.jpg" },
-  { id:"boc-home", team:"Boca Juniors", name:"Boca Juniors  Retro Quilmes · Local ", price:35, sizes:["S","M","L","XL"], patches:["Sin parche","LPF","Libertadores"], img:"img/Boca Jrs Retro Quilmes.jpg" },
-  { id:"fla-home", team:"Flamengo", name:"Flamengo 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Brasilerao","Mundial de Clubes","Libertadores"], img:"img/Flamengo Home 25-26 2.jpg" },
-  { id:"flu-home", team:"Fluminense", name:"Fluminense 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Brasilerao","Mundial de Clubes","Libertadores"], img:"img/Fluminense Home 25-26.jpg" },
-  { id:"san-home", team:"Santos", name:"Santos 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], patches:["Sin parche","Brasilerao","Libertadores"], img:"img/Santos Away 25-26.jpg" },
-  { id:"sao-home", team:"Sao Paulo", name:"Sao Paulo Player Version · Local ", price:40, sizes:["S","M","L","XL"],  patches:["Sin parche","Brasilerao","Libertadores"], img:"img/Sao Paulo Home 25-26.jpg" },
+  { id:"rm-home", team:"Real Madrid", name:"Real Madrid 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], img:"Real Madrid Home 25-26 (1).jpg" },
+  { id:"rm-away", team:"Real Madrid", name:"Real Madrid 25/26 Player Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"Real Madrid Away 25-26.png" },
+  { id:"rm-3rd", team:"Real Madrid", name:"Real Madrid 25/26 Player Version · 3rd", price:40, sizes:["S","M","L","XL"], img:"Real Madrid 3rd 25-26.jpg" },
+  { id:"rm-retro", team:"Real Madrid", name:"Real Madrid Retro Bwin · Visitante", price:35, sizes:["S","M","L","XL"], img:"img/Real Madrid Retro Bwin Negro.jpg" },
+  { id:"fcb-home", team:"Barcelona", name:"Barcelona 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"IMG_3668.PNG" },
+  { id:"fcb-away", team:"Barcelona", name:"Barcelona 25/26 Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Barcelona Away 25-26.jpg" },
+  { id:"fcb-retro", team:"Barcelona", name:"Barcelona Retro 2009 · Local ", price:35, sizes:["S","M","L","XL"], img:"img/Barcelona Retro Unicef 2.jpg" },
+  { id:"fcb-retro", team:"Barcelona", name:"Barcelona Retro 2015 · Local ", price:35, sizes:["S","M","L","XL"], img:"img/Barcelona Retro Qatar Airways.jpg" },
+  { id:"atm-home", team:"Atlético de Madrid", name:"Atlético 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Atletico de Madrid Home 25-26.jpg" },
+  { id:"atm-retro", team:"Atlético de Madrid", name:"Atlético 25/26 Retro Marbella · Visitante ", price:35, sizes:["S","M","L","XL"], img:"img/Atletico de Madrid Retro Marbella.jpg" },
+  { id:"psg-home", team:"PSG", name:"PSG 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], img:"PSG Home 25-26.jpg" },
+  { id:"psg-retro", team:"PSG", name:"PSG 25/26 Retro Opel · Visitante", price:35, sizes:["S","M","L","XL"], img:"img/PSG Retro Opel.jpg" },
+  { id:"liv-home", team:"Liverpool", name:"Liverpool 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], img:"Liverpool Home 25-26.jpg" },
+  { id:"liv-away", team:"Liverpool", name:"Liverpool 25/26 Player Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"Liverpool 3rd 25-26.jpg" },
+  { id:"liv-retro", team:"Liverpool", name:"Liverpool 24/25 Player Version · 3rd", price:40, sizes:["S","M","L","XL"], img:"img/Liverpool 3rd 24-25.jpg" },
+  { id:"liv-retro", team:"Liverpool", name:"Liverpool Retro Carlsberg · Local", price:35, sizes:["S","M","L","XL"], img:"img/Liverpool Retro Carlsberg.jpg" },
+  { id:"man-home", team:"Manchester City", name:"Manchester City 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], img:"IMG_3665.PNG" },
+  { id:"man-away", team:"Manchester City", name:"Manchester City 25/26 Player Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"IMG_3667.PNG" },
+  { id:"utd-home", team:"Manchester United", name:"Manchester United 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], img:"Man United Home 25-26.jpg" },
+  { id:"utd-away", team:"Manchester United", name:"Manchester United 25/26 Player Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"img/27686C55-08D7-485F-8BA9-276F6B271370.jpg" },
+  { id:"tot-home", team:"Tottenham", name:"Tottenham 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], img:"Tottenham Home 25-26.PNG" },
+  { id:"tot-away", team:"Tottenham", name:"Tottenham 25/26 Player Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"Tottenham Away 25_26.PNG" },
+  { id:"ars-home", team:"Arsenal", name:"Arsenal 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], img:"img/Arsenal Home 25-26.jpg" },
+  { id:"ars-away", team:"Arsenal", name:"Arsenal 25/26 Player Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"img/Arsenal Away 25-26.jpg" },
+  { id:"che-home", team:"Chelsea", name:"Chelsea 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Chelsea Home 25-26.jpg" },
+  { id:"che-away", team:"Chelsea", name:"Chelsea 25/26 Player Version · Visitantte ", price:40, sizes:["S","M","L","XL"], img:"img/CHELSEA 25_26 AWAY.PNG" },
+  { id:"che-retro", team:"Chelsea", name:"Chelsea Retro Samsung · Local ", price:35, sizes:["S","M","L","XL"], img:"img/Chelsea Retro Samsung.jpg" },
+  { id:"che-retro", team:"Chelsea", name:"Chelsea Retro Umbro · Local ", price:35, sizes:["S","M","L","XL"], img:"img/Chelsea Retro Umbro Samsung.jpg" },
+  { id:"imi-home", team:"Inter Miami", name:"Inter Miami 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Inter Miami Home 25-26 (1).jpg" },
+  { id:"imi-away", team:"Inter Miami", name:"Inter Miami 25/26 Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"img/Inter Miami Away 25-26.jpg" },
+  { id:"atl-home", team:"Atlanta United", name:"Atlanta United 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/Atlanta United Home 25-26.jpg" },
+  { id:"nyf-home", team:"New York FC", name:"New York FC 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/NYC FC Home 25-26.jpg" },
+  { id:"juv-home", team:"Juventus", name:"Juventus 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], img:"Juventus Home 25-26.jpg" },
+  { id:"juv-home", team:"Juventus", name:"Juventus 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], img:"Juventus Away 25-26.jpg" },
+  { id:"juv-retro", team:"Juventus", name:"Juventus Retro Balocco · Local", price:35, sizes:["S","M","L","XL"], img:"img/Juventus Retro Balocco.jpg" },
+  { id:"juv-retro", team:"Juventus", name:"Juventus Retro Jeep · Local", price:35, sizes:["S","M","L","XL"], img:"img/Juventus Retro JEEP.jpg" },
+  { id:"int-home", team:"Inter de Milan", name:"Inter de Milan 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Inter Home 25-26.jpg" },
+  { id:"int-away", team:"Inter de Milan", name:"Inter de Milan 25/26 Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Inter Away 25-26.jpg" },
+  { id:"int-retro", team:"Inter de Milan", name:"Inter de Milan Retro Pirelli · Local ", price:35, sizes:["S","M","L","XL"], img:"img/Inter Retro Pirelli 2.jpg" },
+  { id:"int-retro", team:"Inter de Milan", name:"Inter de Milan Retro Pirelli · Visitante ", price:35, sizes:["S","M","L","XL"], img:"img/Inter Retro Away Pirelli.jpg" },
+  { id:"mil-home", team:"AC Milan", name:"AC Milan 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"AC Milan Home 25-26.jpg" },
+  { id:"mil-retro", team:"AC Milan", name:"AC Milan Retro Bwin · Local ", price:35, sizes:["S","M","L","XL"], img:"img/✅AC Milan Retro Bwin.jpg" },
+  { id:"mil-retro", team:"AC Milan", name:"AC Milan Retro Fly Emirates · Local ", price:35, sizes:["S","M","L","XL"], img:"img/✅AC Milan Retro Fly Emirates.jpg" },
+  { id:"mil-retro", team:"AC Milan", name:"AC Milan Retro Fly Emirates · Local ", price:35, sizes:["S","M","L","XL"], img:"img/AC Milan Retro Fly Emirates Long Sleeve.jpg" },
+  { id:"bay-home", team:"Bayern Munich", name:"Bayern Munich 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Bayern Munich 3rd 25-26.jpg" },
+  { id:"bay-away", team:"Bayern Munich", name:"Bayern Munich 25/26 Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Bayern Munich Away 25-26.jpg" },
+  { id:"bay-retro", team:"Bayern Munich", name:"Bayern Munich Retro Opel · Local ", price:35, sizes:["S","M","L","XL"], img:"img/Bayern Munich Retro 1-1.jpg" },
+  { id:"bay-retro", team:"Bayern Munich", name:"Bayern Munich Retro Opel · Visitante ", price:35, sizes:["S","M","L","XL"], img:"img/Bayern Munich Retro Opel.jpg" },
+  { id:"boc-home", team:"Boca Juniors", name:"Boca Juniors  25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"Boca Jrs Home 25-26 (1).jpg" },
+  { id:"boc-away", team:"Boca Juniors ", name:"Boca Juniors  25/26 Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"Boca Jr Away 25_26.png" },
+  { id:"boc-retro", team:"Boca Juniors", name:"Boca Juniors  Retro 81' · Local ", price:35, sizes:["S","M","L","XL"], img:"img/Boca Jrs Retro 81' 2.jpg" },
+  { id:"boc-home", team:"Boca Juniors", name:"Boca Juniors  Retro Quilmes · Local ", price:35, sizes:["S","M","L","XL"], img:"img/Boca Jrs Retro Quilmes.jpg" },
+  { id:"fla-home", team:"Flamengo", name:"Flamengo 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/Flamengo Home 25-26 2.jpg" },
+  { id:"flu-home", team:"Fluminense", name:"Fluminense 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/Fluminense Home 25-26.jpg" },
+  { id:"san-home", team:"Santos", name:"Santos 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/Santos Away 25-26.jpg" },
+  { id:"sao-home", team:"Sao Paulo", name:"Sao Paulo Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/Sao Paulo Home 25-26.jpg" },
   ];
    
 // ----------------------------
@@ -388,37 +388,25 @@ function renderGrid(){
     (!state.filterSize || p.sizes.includes(state.filterSize)) &&
     (p.name.toLowerCase().includes(q) || p.team.toLowerCase().includes(q))
   ));
-
-  grid.innerHTML = items.map(p=> {
-    const patches = (p.patches && p.patches.length ? p.patches : ["Sin parche"]);
-    return `
-      <article class="card">
-        <div class="thumb">
-          <img src="${p.img}" alt="${p.name}" onerror="this.parentElement.innerHTML='Sin imagen'"/>
+  grid.innerHTML = items.map(p=> `
+    <article class="card">
+      <div class="thumb">
+        <img src="${p.img}" alt="${p.name}" onerror="this.parentElement.innerHTML='Sin imagen'"/>
+      </div>
+      <div class="content">
+        <div class="title">${p.name}</div>
+        <div class="muted">${p.team}</div>
+        <div class="row">
+          <select id="size-${p.id}" class="input size">
+            <option value="">Talle</option>
+            ${p.sizes.map(s=>`<option>${s}</option>`).join('')}
+          </select>
+          <div class="price">${fmt(p.price)}</div>
         </div>
-        <div class="content">
-          <div class="title">${p.name}</div>
-          <div class="muted">${p.team}</div>
-
-          <div class="row">
-            <select id="size-${p.id}" class="input size">
-              <option value="">Talle</option>
-              ${p.sizes.map(s=><option>${s}</option>).join('')}
-            </select>
-
-            <select id="patch-${p.id}" class="input patch">
-              <option value="">Parches</option>
-              ${patches.map(pa=><option>${pa}</option>).join('')}
-            </select>
-
-            <div class="price">${fmt(p.price)}</div>
-          </div>
-
-          <button class="btn" onclick="addToCart('${p.id}')">Agregar</button>
-        </div>
-      </article>
-    `;
-  }).join('');
+        <button class="btn" onclick="addToCart('${p.id}')">Agregar</button>
+      </div>
+    </article>
+  `).join('');
 }
 
 // ----------------------------
@@ -430,30 +418,17 @@ const totalEl = document.getElementById('cartTotal');
 
 function addToCart(id){
   const p = PRODUCTS.find(x=>x.id===id);
-
-  const selSize = document.getElementById('size-'+id);
-  const size = selSize && selSize.value;
-  if(!size){ alert('Elegí un talle'); return; }
-
-  const selPatch = document.getElementById('patch-'+id);
-  const patch = (selPatch && selPatch.value) || "Sin parche";
-
-  const key = id + "-" + size + "-" + patch;
+  const sel = document.getElementById('size-'+id);
+  const size = sel && sel.value; if(!size){ alert('Elegí un talle'); return; }
+  const key = id+"-"+size;
   const found = state.cart.find(x=>x.key===key);
-
-  if(found){
-    found.qty++;
-  }else{
-    state.cart.push({
-      key, id,
-      name:p.name, team:p.team,
-      price:p.price, size, patch,
-      qty:1, img:p.img
-    });
+  if(found){ found.qty++; }
+  else{
+    state.cart.push({ key, id, name:p.name, team:p.team, price:p.price, size, qty:1, img:p.img });
   }
   saveCart();
   openCart();
-  renderCart();
+  renderCart();
 }
 
 function removeFromCart(key){
@@ -481,7 +456,7 @@ function renderCart(){
         <img src="${it.img}" alt="${it.name}" style="width:52px; height:52px; object-fit:cover; border-radius:8px"/>
         <div>
           <div style="font-weight:700; font-size:13px">${it.name}</div>
-         <div class="muted" style="font-size:12px">Talle ${it.size} · Parche: ${it.patch} · ${fmt(it.price)}</div>
+          <div class="muted" style="font-size:12px">Talle ${it.size} · ${fmt(it.price)}</div>
         </div>
         <div class="qty">
           <button onclick="changeQty('${it.key}',-1)">-</button>
@@ -507,7 +482,7 @@ document.getElementById('fab').onclick = ()=> cartEl.classList.toggle('hide');
 function buildWhatsAppText(){
   const lines = [
     'Hola IMPULSO! 👋 Quiero confirmar este pedido:',
-    ...state.cart.map(it=>• ${it.qty} x ${it.name} (Talle ${it.size}${it.patch ? ' · Parche: '+it.patch : ''}) – ${fmt(it.price*it.qty)}),
+    ...state.cart.map(it=>`• ${it.qty} x ${it.name} (Talle ${it.size}) – ${fmt(it.price*it.qty)}`),
     `Total: ${fmt(cartTotal())}`,
     '',
     'Datos de envío:',
