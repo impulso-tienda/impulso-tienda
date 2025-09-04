@@ -256,6 +256,15 @@
         <option>Fluminense</option>
         <option>Santos</option>
         <option>Sao Paulo</option>
+      <option>Whitecaps FC</option>
+      <option>Orlando </option>
+      <option>LA Galaxy</option>
+      <option>Colombus</option>
+      <option>Porto FC</option>
+      <option>Benfica</option>
+      <option>Sporting Lisboa</option>
+      <option>Cruz Azul</option>
+      <option>Tigres</option>
       <option>Mistery Box</option>
     </select>
 
@@ -303,10 +312,10 @@ const WHATSAPP_NUMBER = "5491135573396"; // ← REEMPLAZAR por tu número (cód.
 const CURRENCY = "EUR";                  // "ARS" | "EUR" | "USD" (solo cambia el símbolo visual)
 
 const PRODUCTS = [
-  { id:"mis-box", team:"Mistery Box", name:"Mistery Box Todas las camisetas · Local", price:30, sizes:["S","M","L","XL"], img:"img/Mistery box.png" },
-   { id:"mis-retro", team:"Mistery Box", name:"Mistery Box Retro · Local", price:30, sizes:["S","M","L","XL"], img:"img/Mistery box retro.png" },
-  { id:"mis-cha", team:"Mistery Box", name:"Mistery Box Champions · Local", price:30, sizes:["S","M","L","XL"], img:"img/Mistery box champions.png" },
-  { id:"mis-sel", team:"Mistery Box", name:"Mistery Box Selecciones · Local", price:30, sizes:["S","M","L","XL"], img:"img/Mistery box Mundiial.png" },
+  { id:"mis-box", team:"Mistery Box", name:"Mistery Box Todas las camisetas · ", price:30, sizes:["S","M","L","XL"], img:"img/Mistery box.png" },
+   { id:"mis-retro", team:"Mistery Box", name:"Mistery Box Retro · ", price:30, sizes:["S","M","L","XL"], img:"img/Mistery box retro.png" },
+  { id:"mis-cha", team:"Mistery Box", name:"Mistery Box Champions · ", price:30, sizes:["S","M","L","XL"], img:"img/Mistery box champions.png" },
+  { id:"mis-sel", team:"Mistery Box", name:"Mistery Box Selecciones · ", price:30, sizes:["S","M","L","XL"], img:"img/Mistery box Mundiial.png" },
   { id:"rm-home", team:"Real Madrid", name:"Real Madrid 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], img:"Real Madrid Home 25-26 (1).jpg" },
   { id:"rm-away", team:"Real Madrid", name:"Real Madrid 25/26 Player Version · Visitante", price:40, sizes:["S","M","L","XL"], img:"Real Madrid Away 25-26.png" },
   { id:"rm-3rd", team:"Real Madrid", name:"Real Madrid 25/26 Player Version · 3rd", price:40, sizes:["S","M","L","XL"], img:"Real Madrid 3rd 25-26.jpg" },
@@ -339,6 +348,11 @@ const PRODUCTS = [
   { id:"imi-away", team:"Inter Miami", name:"Inter Miami 25/26 Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"img/Inter Miami Away 25-26.jpg" },
   { id:"atl-home", team:"Atlanta United", name:"Atlanta United 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/Atlanta United Home 25-26.jpg" },
   { id:"nyf-home", team:"New York FC", name:"New York FC 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/NYC FC Home 25-26.jpg" },
+  { id:"la-home", team:"LA Galaxy", name:"LA Galaxy 25/26 Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"img/LA Galaxy Home 25-26.jpg" },
+  { id:"col-home", team:"Colombus", name:"Colombus 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/colombus 2526.jpeg" },
+  { id:"orl-home", team:"Orlando", name:"Orlando 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/img/orlando 2526.jpeg" },
+  { id:"la-home", team:"LA Galaxy", name:"LA Galaxy 25/26 Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"img/LA Galaxy Home 25-26.jpg" },
+  { id:"whi-home", team:"Whitecaps FC", name:"Whitecaps FC 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/whitcase 2526.jpeg" },
   { id:"juv-home", team:"Juventus", name:"Juventus 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], img:"Juventus Home 25-26.jpg" },
   { id:"juv-home", team:"Juventus", name:"Juventus 25/26 Player Version · Local", price:40, sizes:["S","M","L","XL"], img:"Juventus Away 25-26.jpg" },
   { id:"juv-retro", team:"Juventus", name:"Juventus Retro Balocco · Local", price:35, sizes:["S","M","L","XL"], img:"img/Juventus Retro Balocco.jpg" },
@@ -363,6 +377,14 @@ const PRODUCTS = [
   { id:"flu-home", team:"Fluminense", name:"Fluminense 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/Fluminense Home 25-26.jpg" },
   { id:"san-home", team:"Santos", name:"Santos 25/26 Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/Santos Away 25-26.jpg" },
   { id:"sao-home", team:"Sao Paulo", name:"Sao Paulo Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/Sao Paulo Home 25-26.jpg" },
+  { id:"por-home", team:"Porto FC", name:"Porto FC Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/porto.jpeg" },
+  { id:"ben-home", team:"Benfica", name:"Benfica Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/Benfica Home 25-26.jpg" },
+  { id:"ben-away", team:"Benfica", name:"Benfica Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"img/Benfica Away 25-26.jpg" },
+  { id:"spo-home", team:"Sporting Lisboa", name:"Sporting Lisboa Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/Sporting Lisboa Home 25-26.jpg" },
+  { id:"tig-home", team:"Tigres", name:"Tigres Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/Tigres Home 25-26.jpg" },
+  { id:"tig-away", team:"Tigres", name:"Tigres Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"img/tigres away 2526.jpeg" },
+  { id:"cruz-home", team:"Cruz Azul", name:"Cruz Azul Player Version · Local ", price:40, sizes:["S","M","L","XL"], img:"img/Cruz Azul Away 25-26.jpg" },
+  { id:"cruz-home", team:"Cruz Azul", name:"Cruz Azul Player Version · Visitante ", price:40, sizes:["S","M","L","XL"], img:"img/Cruz Azul Home 25-26.jpg" },
   ];
    
 // ----------------------------
