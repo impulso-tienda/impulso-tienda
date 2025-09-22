@@ -67,8 +67,10 @@
   grid-template-columns: 1.1fr 0.9fr !important; /* igual que .hero */
   gap: 28px !important;
   align-items: center !important;
-  margin: 14px 0 6px !important;
+  margin: 14px auto 6px !important; /* auto centra igual que .container */
+  width: min(1200px, 92%);          /* mismo ancho que el resto */
 }
+
 
 /* Columna izquierda: buscador a TODO el ancho */
 .container.toolbar .search{
