@@ -301,9 +301,18 @@
     </header>
     <div class="cart-body" id="cartItems"></div>
     <div class="cart-footer">
-      <div class="total"><span>Total</span><span id="cartTotal">$0</span></div>
-      <button class="btn accent" id="checkout">Finalizar por WhatsApp</button>
-      <small class="muted">Al finalizar, se abre WhatsApp con el detalle del pedido. Pagos en ARS/EUR/USD por transferencia/Bizum o Mercado Pago. Internacional: Wise/PayPal.</small>
+  <div class="row" style="gap:8px">
+    <input id="discountCode" class="input" placeholder="Código de descuento" style="flex:1">
+    <button class="btn" id="applyDiscount">Aplicar</button>
+  </div>
+
+  <div class="total"><span>Total</span><span id="cartTotal">$0</span></div>
+  <div id="discountMsg" class="muted" style="font-size:12px;"></div>
+
+  <button class="btn accent" id="checkout">Finalizar por WhatsApp</button>
+  <small class="muted">Al finalizar, se abre WhatsApp con el detalle del pedido...</small>
+</div>
+
     </div>
   </aside>
 
@@ -506,6 +515,63 @@ function renderCart(){
   }
   totalEl.textContent = fmt(cartTotal());
 }
+  // ---- CÓDIGOS DE DESCUENTO ----
+const DISCOUNTS = {
+  "KEVCAM10": 0.10,       // 10% de descuento
+  "IMPULSO25": 25,       // Descuento fijo de €5
+  "KEVCAM10COD": 0.50       // 25% de descuento
+};
+
+let appliedDiscount = null;
+
+document.getElementById('applyDiscount').onclick = ()=>{
+  const code = document.getElementById('discountCode').value.trim().toUpperCase();
+  const msg = document.getElementById('discountMsg');
+
+  if (DISCOUNTS[code]){
+    appliedDiscount = { code, value: DISCOUNTS[code] };
+    msg.textContent = `✅ Código "${code}" aplicado`;
+    renderCart();
+  } else {
+    appliedDiscount = null;
+    msg.textContent = `❌ Código inválido`;
+  }
+};
+
+function calcTotal(){
+  let total = state.cart.reduce((a,b)=> a + b.price*b.qty, 0);
+  if (appliedDiscount){
+    const d = appliedDiscount.value;
+    if (d < 1) total = total * (1 - d); // porcentaje
+    else total = total - d; // fijo
+  }
+  return Math.max(total, 0);
+}
+
+function renderCart(){
+  if(state.cart.length===0){
+    itemsEl.innerHTML = '<div class="muted">Tu carrito está vacío.</div>';
+  } else {
+    itemsEl.innerHTML = state.cart.map(it=>`
+      <div class="item">
+        <img src="${it.img}" alt="${it.name}" style="width:52px; height:52px; object-fit:cover; border-radius:8px"/>
+        <div>
+          <div style="font-weight:700; font-size:13px">${it.name}</div>
+          <div class="muted" style="font-size:12px">Talle ${it.size} · ${fmt(it.price)}</div>
+        </div>
+        <div class="qty">
+          <button onclick="changeQty('${it.key}',-1)">-</button>
+          <span>${it.qty}</span>
+          <button onclick="changeQty('${it.key}',1)">+</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  const total = calcTotal();
+  totalEl.textContent = fmt(total);
+}
+
 
 function openCart(){ cartEl.classList.remove('hide'); }
 function closeCart(){ cartEl.classList.add('hide'); }
@@ -521,14 +587,19 @@ function buildWhatsAppText(){
   const lines = [
     'Hola IMPULSO! 👋 Quiero confirmar este pedido:',
     ...state.cart.map(it=>`• ${it.qty} x ${it.name} (Talle ${it.size}) – ${fmt(it.price*it.qty)}`),
-    `Total: ${fmt(cartTotal())}`,
     '',
-    'Datos de envío:',
-    'Nombre y apellido:',
-    'Ciudad y CP:',
-    'Método de pago: (Transferencia/Bizum/MP/Wise/PayPal)'
   ];
+  if (appliedDiscount) {
+    lines.push(`Descuento aplicado: ${appliedDiscount.code}`);
+  }
+  lines.push(`Total: ${fmt(calcTotal())}`);
+  lines.push('');
+  lines.push('Datos de envío:');
+  lines.push('Nombre y apellido:');
+  lines.push('Ciudad y CP:');
+  lines.push('Método de pago: (Transferencia/Bizum/MP/Wise/PayPal)');
   return encodeURIComponent(lines.join('\n'));
+}
 }
 
 document.getElementById('checkout').onclick = ()=>{
