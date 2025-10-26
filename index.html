@@ -300,7 +300,7 @@
       <button class="btn" id="closeCart">Cerrar</button>
     </header>
     <div class="cart-body" id="cartItems"></div>
-    <div class="cart-footer">
+   <div class="cart-footer">
   <div class="row" style="gap:8px">
     <input id="discountCode" class="input" placeholder="Código de descuento" style="flex:1">
     <button class="btn" id="applyDiscount">Aplicar</button>
@@ -312,8 +312,6 @@
   <button class="btn accent" id="checkout">Finalizar por WhatsApp</button>
   <small class="muted">Al finalizar, se abre WhatsApp con el detalle del pedido...</small>
 </div>
-
-    </div>
   </aside>
 
   <!-- FLOATING FAB (mobile) -->
@@ -495,31 +493,11 @@ function cartTotal(){
   return state.cart.reduce((a,b)=> a + b.price*b.qty, 0);
 }
 
-function renderCart(){
-  if(state.cart.length===0){ itemsEl.innerHTML = '<div class="muted">Tu carrito está vacío.</div>'; }
-  else{
-    itemsEl.innerHTML = state.cart.map(it=>`
-      <div class="item">
-        <img src="${it.img}" alt="${it.name}" style="width:52px; height:52px; object-fit:cover; border-radius:8px"/>
-        <div>
-          <div style="font-weight:700; font-size:13px">${it.name}</div>
-          <div class="muted" style="font-size:12px">Talle ${it.size} · ${fmt(it.price)}</div>
-        </div>
-        <div class="qty">
-          <button onclick="changeQty('${it.key}',-1)">-</button>
-          <span>${it.qty}</span>
-          <button onclick="changeQty('${it.key}',1)">+</button>
-        </div>
-      </div>
-    `).join('');
-  }
-  totalEl.textContent = fmt(cartTotal());
-}
-  // ---- CÓDIGOS DE DESCUENTO ----
+// ---- CÓDIGOS DE DESCUENTO ----
 const DISCOUNTS = {
   "KEVCAM10": 0.10,       // 10% de descuento
-  "IMPULSO25": 25,       // Descuento fijo de €5
-  "KEVCAM10COD": 0.50       // 25% de descuento
+  "IMPULSOOF": 25,       // Descuento fijo de €5
+  "SECRETKEVCAM10": 0.50       // 25% de descuento
 };
 
 let appliedDiscount = null;
@@ -572,7 +550,6 @@ function renderCart(){
   totalEl.textContent = fmt(total);
 }
 
-
 function openCart(){ cartEl.classList.remove('hide'); }
 function closeCart(){ cartEl.classList.add('hide'); }
 
@@ -599,7 +576,6 @@ function buildWhatsAppText(){
   lines.push('Ciudad y CP:');
   lines.push('Método de pago: (Transferencia/Bizum/MP/Wise/PayPal)');
   return encodeURIComponent(lines.join('\n'));
-}
 }
 
 document.getElementById('checkout').onclick = ()=>{
