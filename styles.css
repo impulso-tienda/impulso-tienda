@@ -1,46 +1,26 @@
-/* Estilos básicos para el cuerpo y el layout */
 body {
     margin: 0;
     font-family: sans-serif;
+    /* No se necesita padding-top extra en el body con sticky */
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Estilo para la toolbar */
-.toolbar-header {
-    background-color: #333; /* Fondo oscuro para que resalte */
+.toolbar {
+    position: sticky; /* Comportamiento mixto entre relative y fixed */
+    top: 0;           /* El punto donde se "pega" (en la parte superior de la ventana) */
+    background-color: #333;
     color: white;
     padding: 10px 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    /* PROPIEDAD CLAVE: */
-    position: sticky; 
-    top: 0;           /* El umbral: se pega cuando toca los 0px superiores de la ventana */
-    z-index: 1000;    /* Asegura que esté por encima de otros elementos */
+    z-index: 1000;
 }
-
-/* Estilos para los elementos internos del buscador */
 .search .input {
-    padding: 8px;
-    border: none;
-    border-radius: 4px 0 0 4px;
-    outline: none;
+    padding: 10px;
+    margin-left: 20px;
+    width: 300px;
 }
 
-.search button {
-    padding: 8px 12px;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    cursor: pointer;
-    border-radius: 0 4px 4px 0;
-}
-
-/* Estilo para el contenido principal, solo para generar scroll */
 .main-content {
+    /* Simplemente para generar suficiente altura de página */
+    min-height: 150vh; 
     padding: 20px;
-    height: 150vh; /* Hace la página lo suficientemente larga para hacer scroll */
 }
