@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
   <style>
     :root{
       --bg:#0e0e10;         /* negro profundo */
@@ -235,10 +236,12 @@
 </section>
 
   <!-- TOOLBAR -->
+  <header class="toolbar-header">
   <section class="container toolbar">
   <!-- Columna izquierda: buscador -->
   <div class="search">
     <input id="searchInput" class="input" placeholder="Buscar equipo o jugador (ej: Madrid, Messi)" />
+    <button>Buscar</button>
   </div>
 
   <!-- Columna derecha: filtros -->
@@ -247,13 +250,17 @@
       <option value="">Todos los equipos</option>   
       <option>Mistery Box</option>
       <option>AC Milan</option>
+      <option>Al-Hilal</option>
       <option>Arsenal</option>
+      <option>Athletic Bilbao</option>
       <option>Atlanta United</option>
       <option>Atlético de Madrid</option>
+      <option>Atlético Nacional</option>
       <option>Barcelona</option>
       <option>Bayern Munich</option>
       <option>Benfica</option>
       <option>Boca Juniors</option>
+      <option>Borussia Dortmund</option>
       <option>Chelsea</option>
       <option>Colombus</option>
       <option>Cruz Azul</option>
@@ -394,15 +401,15 @@ const PRODUCTS = [
   { id:"fla-home25", team:"Flamengo", name:"Flamengo 25/26 Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Flamengo Home 25-26 2.jpg" },
   { id:"flu-home25", team:"Fluminense", name:"Fluminense 25/26 Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Fluminense Home 25-26.jpg" },
   { id:"san-home25", team:"Santos", name:"Santos 25/26 Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Santos Away 25-26.jpg" },
-  { id:"sao-home25", team:"Sao Paulo", name:"Sao Paulo Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Sao Paulo Home 25-26.jpg" },
-  { id:"por-home25", team:"Porto FC", name:"Porto FC Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/porto.jpeg" },
-  { id:"ben-home25", team:"Benfica", name:"Benfica Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Benfica Home 25-26.jpg" },
-  { id:"ben-away25", team:"Benfica", name:"Benfica Player Version · Visitante ", price:30, sizes:["S","M","L","XL"], img:"img/Benfica Away 25-26.jpg" },
-  { id:"spo-home25", team:"Sporting Lisboa", name:"Sporting Lisboa Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Sporting Lisboa Home 25-26.jpg" },
-  { id:"tig-home25", team:"Tigres", name:"Tigres Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Tigres Home 25-26.jpg" },
-  { id:"tig-away25", team:"Tigres", name:"Tigres Player Version · Visitante ", price:30, sizes:["S","M","L","XL"], img:"img/tigres away 2526.jpeg" },
-  { id:"cruz-away25", team:"Cruz Azul", name:"Cruz Azul Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Cruz Azul Away 25-26.jpg" },
-  { id:"cruz-home25", team:"Cruz Azul", name:"Cruz Azul Player Version · Visitante ", price:30, sizes:["S","M","L","XL"], img:"img/Cruz Azul Home 25-26.jpg" },
+  { id:"sao-home25", team:"Sao Paulo", name:"Sao Paulo 25/26 Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Sao Paulo Home 25-26.jpg" },
+  { id:"por-home25", team:"Porto FC", name:"Porto FC 25/26 Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/porto.jpeg" },
+  { id:"ben-home25", team:"Benfica", name:"Benfica 25/26 Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Benfica Home 25-26.jpg" },
+  { id:"ben-away25", team:"Benfica", name:"Benfica 25/26 Player Version · Visitante ", price:30, sizes:["S","M","L","XL"], img:"img/Benfica Away 25-26.jpg" },
+  { id:"spo-home25", team:"Sporting Lisboa", name:"Sporting Lisboa 25/26 Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Sporting Lisboa Home 25-26.jpg" },
+  { id:"tig-home25", team:"Tigres", name:"Tigres 25/26 Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Tigres Home 25-26.jpg" },
+  { id:"tig-away25", team:"Tigres", name:"Tigres 25/26 Player Version · Visitante ", price:30, sizes:["S","M","L","XL"], img:"img/tigres away 2526.jpeg" },
+  { id:"cruz-away25", team:"Cruz Azul", name:"Cruz Azul 25/26 Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Cruz Azul Away 25-26.jpg" },
+  { id:"cruz-home25", team:"Cruz Azul", name:"Cruz Azul 25/26 Player Version · Visitante ", price:30, sizes:["S","M","L","XL"], img:"img/Cruz Azul Home 25-26.jpg" },
   { id:"al-away25", team:"Al-Hilal", name:"Al-Hilal 25/26 Player Version · Visitante ", price:30, sizes:["S","M","L","XL"], img:"img/Al Hilal Away 25-26.jpg" },
   { id:"al-home25", team:"Al-Hilal", name:"Al-Hilal 25/26 Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Al Hilal Home 25-26.jpg" },
   { id:"atln-home25", team:"Atlético Nacional", name:"Atlético Nacional 25/26 Player Version · Local ", price:30, sizes:["S","M","L","XL"], img:"img/Atletico Nacional Home 25-26.jpg" },
